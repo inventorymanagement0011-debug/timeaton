@@ -1,0 +1,1736 @@
+/* ============================================================
+   T.S. EATON FINE ART — EXACT MATCH CSS
+   Extracted directly from https://timeaton.thebeamhive.com/
+   ============================================================ */
+
+/* FONTS — exactly as WordPress loads them */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto:wght@300;400;500;600&family=Roboto+Slab:wght@300;400;600&display=swap');
+
+/* RESET */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Roboto', Sans-serif;
+  background-color: #F5F5F5; /* extracted from elementor-page-15 */
+  color: #111111;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* ============================================================
+   MOBILE FULLSCREEN MENU — extracted from UE fullscreen widget
+   Background: #20699C exactly as in source
+   ============================================================ */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: #20699C;
+  z-index: 99999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none; border: none;
+  color: #fff; font-size: 32px;
+  cursor: pointer; line-height: 1;
+  width: 60px; height: 60px;
+  display: flex; align-items: center; justify-content: center;
+}
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+}
+.mobile-menu-nav a {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+  display: block;
+  padding: 14px 20px;
+  line-height: 2.3em;
+  transition: opacity 0.2s;
+}
+.mobile-menu-nav a:hover { opacity: 0.75; }
+
+/* ============================================================
+   HEADER — from custom CSS in source:
+   position: absolute; background: transparent; z-index: 999; top: 5%
+   #inr-trnsprent: background rgba(255,255,255,0.6); border-radius:15px
+   #logo-bck img: position:absolute; right:0; top:-50px
+   ============================================================ */
+.site-header {
+  position: absolute;
+  background: transparent;
+  z-index: 999;
+  top: 5%;
+  left: 0;
+  right: 0;
+  /* fadeInDown animation from Elementor */
+  animation: fadeInDown 0.8s ease both;
+}
+
+.header-inner {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 70px;
+  position: relative;
+}
+
+/* LOGO — absolute positioned above the nav bar */
+.header-logo {
+  position: relative;
+  flex-shrink: 0;
+  width: 20%;
+}
+.header-logo a {
+  display: block;
+}
+.header-logo img {
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 120px;
+  height: auto;
+}
+
+/* DESKTOP NAV — Merriweather 16px as in source */
+.header-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 20px;
+}
+.nav-item {
+  font-family: 'Merriweather', serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #111111;
+  padding: 8px 15px;
+  border-radius: 50px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+.nav-item:hover,
+.nav-item.active {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* HEADER RIGHT */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* CART */
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 13px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cart-count {
+  background: #20699C;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 3px;
+}
+.cart-label { font-size: 13px; color: #333; }
+
+/* LOGIN BUTTON — #20699C, Merriweather, border-radius:5px */
+.login-btn {
+  display: inline-block;
+  background-color: #20699C;
+  color: #ffffff;
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 10px 28px;
+  transition: background-color 0.2s, color 0.2s;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.login-btn:hover {
+  background-color: #ffffff;
+  color: #20699C;
+  border-color: #20699C;
+}
+
+/* HAMBURGER — only on mobile */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.hamburger-btn span {
+  display: block;
+  width: 24px; height: 2px;
+  background: #333;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ============================================================
+   HERO SECTION — extracted exactly from the HTML widget CSS
+   ============================================================ */
+.hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.45) 0%,
+    rgba(0,0,0,0.20) 45%,
+    rgba(0,0,0,0.05) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0 0 90px 80px;
+  color: #fff;
+}
+
+.heading-mask {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ANIMATED HEADING — Merriweather, exact from source */
+.animated-heading {
+  font-family: "Merriweather", serif;
+  font-size: clamp(40px, 6vw, 95px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  color: rgba(255,255,255,0.78);
+  white-space: nowrap;
+}
+
+/* LETTER ANIMATION — exact values from source JS/CSS */
+.animated-heading span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(35px);
+  filter: blur(8px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease,
+    filter 0.75s ease;
+}
+.animated-heading span.show {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+.animated-heading span.hide {
+  opacity: 0;
+  transform: translateX(-35px);
+  filter: blur(8px);
+}
+.animated-heading span.space {
+  width: 0.35em;
+}
+
+/* SOUND BUTTON — #20699C, exact positioning from source */
+.sound-btn {
+  position: absolute;
+  right: 35px;
+  bottom: 35px;
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  background: #20699C;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sound-btn:hover,
+.sound-btn:focus {
+  background: #ffffff !important;
+  color: #20699C;
+}
+
+/* ============================================================
+   ABOUT SECTION — fadeInUp image, fadeInRight text
+   background-color: #CCCCCC (from elementor-element-0c37d52)
+   padding: 80px 0
+   ============================================================ */
+.about-section {
+  background-color: #CCCCCC;
+  padding: 80px 0;
+}
+.about-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 40px;
+}
+.about-img-col {
+  flex: 0 0 auto;
+  width: 42%;
+}
+.about-img-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.about-text-col {
+  flex: 1;
+  padding-left: 50px;
+}
+.about-heading {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 16px;
+}
+.about-text-col p {
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.about-award {
+  font-style: italic;
+  color: #444 !important;
+  font-size: 13px !important;
+}
+.about-quote-small {
+  font-style: italic;
+  color: #555 !important;
+  font-size: 13px !important;
+}
+
+/* PRIMARY BUTTON — #20699C, Merriweather, border-radius:5px, padding:15px 40px */
+.btn-primary {
+  display: inline-block;
+  background-color: #20699C;
+  color: #ffffff;
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 15px 40px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  border: 1px solid transparent;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #ffffff !important;
+  color: #20699C;
+  border-color: #20699C;
+}
+
+/* ============================================================
+   COLLECTIONS — background: #CCCCCC (padding: 20px 0)
+   ============================================================ */
+.collections-section {
+  background-color: #CCCCCC;
+  padding: 20px 0 80px;
+}
+.collections-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.collections-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 20px;
+}
+.collections-header-left { flex: 1; }
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 8px;
+}
+.section-sub {
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+.btn-outline-dark {
+  display: inline-block;
+  background-color: #20699C;
+  color: #ffffff;
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 15px 40px;
+  transition: background-color 0.2s, color 0.2s;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btn-outline-dark:hover {
+  background-color: #ffffff !important;
+  color: #20699C;
+  border-color: #20699C;
+}
+
+/* PRODUCT GRID — 4 columns with card hover shadow from source:
+   box-shadow: 0 0 10px 0 rgba(0,0,0,0.5) on hover
+   border-radius: 10px; border: 2px solid #FFFFFF; bg: rgba(255,255,255,0.64)
+*/
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.product-card {
+  background-color: rgba(255, 255, 255, 0.64);
+  border: 2px solid #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+.product-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  border-radius: 10px;
+}
+.product-card-img-link {
+  display: block;
+  overflow: hidden;
+}
+.product-card-img-link img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-card-img-link img {
+  transform: scale(1.04);
+}
+.product-card-info {
+  padding: 10px 10px 20px;
+}
+.product-card-info h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111111;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.product-card-info h3 a { color: #111111; }
+.product-card-info h3 a:hover { color: #20699C; }
+.product-edition {
+  font-size: 12px;
+  color: #7A7A7A;
+  line-height: 1.5;
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+.product-dims {
+  font-size: 11.5px;
+  color: #aaa;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+.acquire-link {
+  font-family: 'Merriweather', serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #20699C;
+  border-bottom: 1px solid #20699C;
+  padding-bottom: 1px;
+  display: inline-block;
+  transition: color 0.2s, border-color 0.2s;
+}
+.acquire-link:hover { color: #111; border-color: #111; }
+
+/* ============================================================
+   IN ASSOCIATION WITH — bg: #CCCCCC, padding: 20px 0
+   Image carousel (4 slides on desktop) from elementor-element-ba4f391
+   ============================================================ */
+.assoc-section {
+  background-color: #CCCCCC;
+  padding: 20px 0;
+}
+.assoc-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  align-items: center;
+  background-image: url('https://timeaton.thebeamhive.com/wp-content/uploads/2026/05/Rectangle-11.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  padding: 50px;
+}
+.assoc-text-col .section-title { margin-bottom: 12px; }
+.assoc-text-col p {
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  color: #111;
+  line-height: 1.7;
+}
+.assoc-logos-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.assoc-logos-col img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ============================================================
+   COLLECTOR REVIEWS CAROUSEL
+   slide bg: #E7E7E7; border-radius: 10px; padding: 15px
+   text: Merriweather 15px italic font-weight:300
+   ============================================================ */
+.reviews-section {
+  background-color: #CCCCCC;
+  padding: 20px 0;
+}
+.reviews-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+.reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.btn-blue-outline {
+  display: inline-block;
+  background-color: #20699C;
+  color: #fff;
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.btn-blue-outline:hover {
+  background-color: #fff !important;
+  color: #20699C;
+  border-color: #20699C;
+}
+
+.reviews-carousel-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.reviews-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.review-slide {
+  flex: 0 0 25%;
+  padding: 0 8px;
+  min-width: 25%;
+}
+.review-card {
+  background-color: #E7E7E7;
+  border-radius: 10px;
+  padding: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+.review-text {
+  font-family: 'Merriweather', serif;
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: #111111;
+  line-height: 25px;
+  flex: 1;
+}
+.review-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+.review-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #888;
+  flex-shrink: 0;
+}
+.review-author {
+  font-family: 'Roboto Slab', serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7A7A7A;
+}
+.review-stars {
+  color: #f5a623;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-left: auto;
+}
+
+/* Carousel arrows */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 38px; height: 38px;
+  font-size: 22px;
+  color: #333;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  z-index: 2;
+}
+.carousel-prev { left: -8px; }
+.carousel-next { right: -8px; }
+.carousel-prev:hover, .carousel-next:hover {
+  background: #20699C !important;
+  color: #fff;
+}
+
+/* ============================================================
+   FAQ SECTION — bg: #CCCCCC, image left slideInLeft, accordion right
+   from elementor-element-7331b21
+   ============================================================ */
+.faq-section {
+  background-color: #CCCCCC;
+  padding: 20px 0;
+}
+.faq-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 25px 25px;
+  background-image: url('https://timeaton.thebeamhive.com/wp-content/uploads/2026/05/Group-1261153014-1.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 50px;
+  align-items: start;
+}
+.faq-img-col img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.faq-accordion-col .section-title {
+  margin-bottom: 20px;
+}
+
+/* FAQ ACCORDION — border-bottom solid rgba(0,0,0,0.31) from source */
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.31);
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111111;
+  cursor: pointer;
+  line-height: 1.4;
+}
+.faq-icon {
+  flex-shrink: 0;
+  font-size: 22px;
+  color: #111;
+  line-height: 1;
+  transition: transform 0.3s;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+  color: #20699C;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+.faq-answer p {
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.78;
+}
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding-bottom: 18px;
+}
+
+/* ============================================================
+   FOOTER — Newsletter + 3 col layout
+   Newsletter bg: Rectangle-11-1.png, border-radius:20px
+   Footer bottom: white bg
+   ============================================================ */
+.site-footer { background: #fff; }
+
+/* Newsletter section */
+.newsletter-section {
+  background-color: #CCCCCC;
+  padding: 20px 0 40px;
+}
+.newsletter-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  background-image: url('https://timeaton.thebeamhive.com/wp-content/uploads/2026/05/Rectangle-11-1.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 020px 020px 0 0; /* matches source: border-radius:020px 020px 0px 0px */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 10px;
+}
+.newsletter-text h2 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 400;
+  color: #111111;
+  margin-bottom: 10px;
+}
+.newsletter-text p {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.7;
+}
+.newsletter-form-wrap { display: flex; justify-content: center; }
+.newsletter-form {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 500px;
+}
+.newsletter-input {
+  flex: 1;
+  padding: 12px 18px;
+  border: 1px solid #A9A9A9;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  font-size: 14px;
+  font-family: 'Merriweather', serif;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+.newsletter-input:focus { border-color: #20699C; }
+.newsletter-input::placeholder { color: #bbb; }
+.newsletter-form .btn-primary {
+  border-radius: 0 5px 5px 0;
+  margin: 0;
+  padding: 12px 24px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* Footer bottom — white bg, 3 columns */
+.footer-bottom {
+  background: #ffffff;
+  padding: 50px 40px 0;
+}
+.footer-bottom-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+.footer-col h4 {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 16px;
+}
+.footer-col p,
+.footer-col a {
+  display: block;
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.7;
+  margin-bottom: 5px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: #20699C; }
+.footer-col strong { font-weight: 700; }
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+.social-icon {
+  width: 36px; height: 36px;
+  border-radius: 15px; /* from source: border-radius:15px */
+  background: #ffffff;
+  border: 1px solid rgba(2,1,1,0.24); /* from source: border-color:#0201013D */
+  display: flex; align-items: center; justify-content: center;
+  color: #000000;
+  transition: all 0.2s;
+}
+.social-icon svg { width: 16px; height: 16px; }
+.social-icon:hover {
+  background: #20699C;
+  color: #fff;
+  border-color: #20699C;
+}
+.social-icon:hover svg { color: #fff; stroke: #fff; fill: #fff; }
+
+/* Footer copyright */
+.footer-copyright {
+  max-width: 1440px;
+  margin: 0 auto;
+  border-top: 1px solid #eee;
+  padding: 20px 0 40px;
+  text-align: center;
+}
+.footer-copyright p {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 2.4em;
+}
+
+/* ============================================================
+   ELEMENTOR ANIMATIONS — fadeInDown, fadeInUp, fadeInRight,
+   slideInLeft, zoomIn (from linked animation CSS files in source)
+   ============================================================ */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translate3d(0, -30px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translate3d(0, 30px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translate3d(50px, 0, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translate3d(-60px, 0, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale3d(0.85, 0.85, 0.85); }
+  50%  { opacity: 1; }
+  to   { transform: none; }
+}
+
+/* Classes applied by IntersectionObserver */
+.animated {
+  opacity: 0;
+}
+.animated.animate-done {
+  animation-fill-mode: both;
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+  opacity: 1;
+}
+.animated.fadeInDown.animate-done  { animation-name: fadeInDown; }
+.animated.fadeInUp.animate-done    { animation-name: fadeInUp; }
+.animated.fadeInRight.animate-done { animation-name: fadeInRight; }
+.animated.slideInLeft.animate-done { animation-name: slideInLeft; }
+.animated.zoomIn.animate-done      { animation-name: zoomIn; }
+
+/* Header is always visible (it has its own CSS animation) */
+.site-header { opacity: 1; animation-name: fadeInDown; animation-duration: 0.8s; animation-fill-mode: both; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1366px) {
+  .nav-item { font-size: 15px; padding-left: 15px; padding-right: 15px; }
+}
+
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .faq-inner { grid-template-columns: 1fr; }
+  .faq-img-col { display: none; }
+  .assoc-inner { grid-template-columns: 1fr; }
+  .newsletter-inner { grid-template-columns: 1fr; }
+  .footer-bottom-inner { grid-template-columns: 1fr 1fr; }
+  .about-inner { flex-direction: column; }
+  .about-img-col { width: 100%; }
+  .about-text-col { padding-left: 0; padding-top: 30px; }
+  .review-slide { flex: 0 0 50%; min-width: 50%; }
+}
+
+@media (max-width: 767px) {
+  .site-header { top: 0; border-radius: 0; }
+  .header-inner { border-radius: 0; height: 60px; }
+  .header-logo img { top: -30px; width: 90px; }
+  .header-nav { display: none; }
+  .login-btn { display: none; }
+  .hamburger-btn { display: flex; }
+  .cart-label { display: none; }
+
+  .hero-content { padding: 0 20px 70px 20px; }
+  .animated-heading { font-size: clamp(34px, 12vw, 58px); white-space: normal; }
+  .sound-btn { width: 46px; height: 46px; font-size: 18px; right: 18px; bottom: 22px; }
+
+  .about-section { padding: 40px 0; }
+  .about-inner { padding: 0 20px; }
+  .collections-inner { padding: 0 20px; }
+  .assoc-inner { padding: 20px; margin: 0 20px; border-radius: 10px; }
+  .reviews-inner { padding: 20px; }
+  .faq-inner { padding: 20px; margin: 0 20px; border-radius: 10px; }
+  .newsletter-inner { padding: 20px; margin: 0 20px; border-radius: 10px; }
+  .footer-bottom { padding: 30px 20px 0; }
+  .footer-bottom-inner { grid-template-columns: 1fr; gap: 24px; }
+  .footer-copyright { padding: 16px 0 30px; }
+
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .review-slide { flex: 0 0 100%; min-width: 100%; }
+  .collections-header { flex-direction: column; align-items: flex-start; }
+  .reviews-header { flex-direction: column; align-items: flex-start; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-input { border-right: 1px solid #A9A9A9; border-radius: 5px; }
+  .newsletter-form .btn-primary { border-radius: 5px; margin-top: 8px; }
+}
+
+@media (max-width: 480px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .animated-heading { font-size: 34px; }
+  .hero-content { padding-bottom: 65px; }
+}
+
+/* ============================================================
+   PAGE HERO — inner pages (About/Landscape/Contemporary video banner)
+   ============================================================ */
+.page-hero-section {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  height: 60vh;
+  min-height: 420px;
+  overflow: hidden;
+}
+.page-hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.page-hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.05) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 70px;
+  color: #fff;
+  max-width: 760px;
+}
+.page-hero-eyebrow {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 14px;
+}
+.page-hero-heading {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.page-hero-sub {
+  font-family: 'Merriweather', serif;
+  font-size: 15px;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 24px;
+}
+.page-hero-content p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+.page-hero-btns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.sound-btn-inline {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: #20699C;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.sound-btn-inline:hover { background: #fff; color: #20699C; }
+
+/* ============================================================
+   QUOTE BANNER (About / Contemporary)
+   ============================================================ */
+.quote-banner-section {
+  background-color: #CCCCCC;
+  padding: 60px 40px;
+  text-align: center;
+}
+.quote-banner-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.quote-banner-inner blockquote {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(16px, 2vw, 21px);
+  font-weight: 700;
+  font-style: italic;
+  color: #111;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+.quote-banner-inner cite {
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   MY ART, YOUR HOME GALLERY (About page)
+   ============================================================ */
+.art-gallery-section {
+  background-color: #CCCCCC;
+  padding: 20px 0 60px;
+}
+.art-gallery-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.art-gallery-inner h2 { margin-bottom: 24px; }
+.art-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.art-gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: opacity 0.3s;
+}
+.art-gallery-grid img:hover { opacity: 0.85; }
+
+/* ============================================================
+   BESPOKE SECTION (About page)
+   ============================================================ */
+.bespoke-section {
+  background-color: #CCCCCC;
+  padding: 50px 40px 70px;
+  text-align: center;
+}
+.bespoke-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.bespoke-inner .section-title { margin-bottom: 20px; }
+.bespoke-inner p {
+  font-family: 'Merriweather', serif;
+  font-size: 14.5px;
+  color: #333;
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+.bespoke-inner .btn-primary { margin-top: 18px; }
+
+/* ============================================================
+   CONTACT / INSIDER ACCESS FORM (About page)
+   ============================================================ */
+.contact-section {
+  background-color: #CCCCCC;
+  padding: 20px 40px 60px;
+}
+.contact-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+.contact-img-col img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.contact-form-col h2 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(18px, 2.2vw, 23px);
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+.contact-form-col p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-field label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.form-field input {
+  padding: 11px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-field input:focus { border-color: #20699C; }
+.form-field input::placeholder { color: #ccc; }
+.form-check {
+  display: flex; align-items: center; gap: 9px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px; color: #555;
+  margin: 8px 0 20px;
+  cursor: pointer;
+}
+.form-check input { width: 15px; height: 15px; cursor: pointer; accent-color: #20699C; }
+
+/* ============================================================
+   PROCESS TEXT SECTION (About page)
+   ============================================================ */
+.process-text-section {
+  background-color: #CCCCCC;
+  padding: 20px 40px 70px;
+  text-align: center;
+}
+.process-text-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.process-eyebrow {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #888;
+  margin-bottom: 8px;
+}
+.process-text-inner .section-title { margin-bottom: 22px; }
+.process-text-inner p {
+  font-family: 'Merriweather', serif;
+  font-size: 14.5px;
+  color: #333;
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+
+/* ============================================================
+   PROCESS PAGE — image hero w/ text overlay
+   ============================================================ */
+.process-hero-section {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  min-height: 480px;
+  overflow: hidden;
+}
+.process-hero-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.process-hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.05) 100%);
+}
+.process-hero-content {
+  position: relative; z-index: 2;
+  padding: 130px 70px 50px;
+  color: #fff;
+  max-width: 880px;
+}
+.process-hero-heading {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.process-hero-content p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.78;
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   VIDEO GRID — Process page (1 large left, 2 stacked right)
+   ============================================================ */
+.videos-section {
+  background-color: #CCCCCC;
+  padding: 40px 40px 60px;
+}
+.videos-inner { max-width: 1280px; margin: 0 auto; }
+.video-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+}
+.video-large video,
+.video-stack video {
+  width: 100%;
+  border-radius: 10px;
+  background: #000;
+  display: block;
+  outline: none;
+}
+.video-large video { height: 100%; min-height: 400px; object-fit: cover; }
+.video-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.video-stack video { min-height: 190px; object-fit: cover; }
+
+/* ============================================================
+   INQUIRY STRIP — Process page
+   ============================================================ */
+.inquiry-section {
+  background-color: #CCCCCC;
+  padding: 0 40px 70px;
+}
+.inquiry-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px;
+}
+.inquiry-inner img {
+  width: 100%; height: 200px;
+  object-fit: cover; object-position: top;
+  border-radius: 10px;
+}
+.inquiry-text p {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   PRODUCT PAGE
+   ============================================================ */
+.product-page-section {
+  background-color: #CCCCCC;
+  padding: 140px 40px 70px;
+}
+.product-page-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  background: #fff;
+  border-radius: 16px;
+  padding: 50px;
+}
+.prod-main-img {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f0ede8;
+  aspect-ratio: 4/3;
+}
+.prod-main-img img { width: 100%; height: 100%; object-fit: cover; }
+.prod-zoom-btn {
+  position: absolute; top: 12px; right: 12px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  border: none;
+  font-size: 17px; color: #333;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.2s;
+}
+.prod-zoom-btn:hover { background: #fff; }
+.prod-thumbs { display: flex; gap: 10px; margin-top: 14px; }
+.prod-thumbs img {
+  width: 80px; height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.7;
+  transition: border-color 0.2s, opacity 0.2s;
+}
+.prod-thumbs img.active,
+.prod-thumbs img:hover { border-color: #20699C; opacity: 1; }
+
+.prod-info .prod-cat {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px; color: #888; margin-bottom: 10px;
+}
+.prod-info .prod-cat a { color: #20699C; }
+.prod-info h1 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 12px;
+}
+.prod-price {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 22px;
+}
+.prod-info ul {
+  list-style: disc;
+  padding-left: 22px;
+  margin-bottom: 22px;
+}
+.prod-info ul li {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #20699C;
+  margin-bottom: 6px;
+}
+.prod-desc {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.82;
+  margin-bottom: 30px;
+}
+.prod-cart-row {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.prod-qty {
+  width: 64px;
+  padding: 12px;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.prod-qty:focus { border-color: #20699C; }
+.added-notif {
+  display: none;
+  margin-top: 16px;
+  padding: 11px 18px;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #2e7d32;
+}
+
+/* Zoom Lightbox */
+.zoom-lightbox {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 999999;
+  align-items: center; justify-content: center;
+}
+.zoom-lightbox.open { display: flex; }
+.zoom-lightbox img {
+  max-width: 90vw; max-height: 90vh;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.zoom-close {
+  position: absolute; top: 24px; right: 28px;
+  background: none; border: none;
+  color: #fff; font-size: 34px;
+  cursor: pointer; line-height: 1;
+}
+
+/* ============================================================
+   RESPONSIVE — additional pages
+   ============================================================ */
+@media (max-width: 1024px) {
+  .contact-inner { grid-template-columns: 1fr; }
+  .contact-img-col { display: none; }
+  .video-grid { grid-template-columns: 1fr; }
+  .video-large video { min-height: 280px; }
+  .inquiry-inner { grid-template-columns: 1fr; }
+  .inquiry-inner img { width: 200px; height: 200px; margin: 0 auto; }
+  .product-page-inner { grid-template-columns: 1fr; padding: 30px; }
+  .art-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .page-hero-section { height: 50vh; min-height: 340px; }
+  .page-hero-content { padding: 0 24px; }
+  .process-hero-content { padding: 90px 24px 36px; }
+  .quote-banner-section { padding: 40px 24px; }
+  .art-gallery-section { padding: 30px 0 40px; }
+  .art-gallery-inner { padding: 0 24px; }
+  .bespoke-section { padding: 40px 24px 50px; }
+  .contact-section { padding: 20px 24px 40px; }
+  .contact-inner { padding: 28px; border-radius: 10px; }
+  .process-text-section { padding: 20px 24px 50px; }
+  .videos-section { padding: 30px 24px 40px; }
+  .inquiry-section { padding: 0 24px 50px; }
+  .product-page-section { padding: 100px 20px 40px; }
+  .form-row { grid-template-columns: 1fr; }
+  .prod-cart-row { flex-direction: column; align-items: stretch; }
+  .prod-qty { width: 100%; }
+}
+
+/* ============================================================
+   CART PAGE (new)
+   ============================================================ */
+.cart-page-section {
+  background-color: #CCCCCC;
+  padding: 140px 40px 80px;
+  min-height: 60vh;
+}
+.cart-page-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 50px;
+}
+.cart-page-inner h1 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 30px;
+}
+.cart-empty-state {
+  text-align: center;
+  padding: 50px 20px;
+}
+.cart-empty-state p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 24px;
+}
+.cart-row {
+  display: grid;
+  grid-template-columns: 110px 1fr auto auto;
+  gap: 22px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+.cart-row img {
+  width: 110px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.cart-row-title {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 4px;
+}
+.cart-row-meta {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #888;
+}
+.cart-row-price {
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+}
+.cart-row-remove {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 6px;
+  transition: color 0.2s;
+}
+.cart-row-remove:hover { color: #b23b3b; }
+.cart-summary {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 2px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.cart-summary-total {
+  font-family: 'Merriweather', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+}
+.cart-summary-note {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12.5px;
+  color: #888;
+  margin-top: 6px;
+}
+.cart-checkout-btn { min-width: 220px; text-align: center; }
+.cart-checkout-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ============================================================
+   ACCOUNT / LOGIN PAGE (new) — guest checkout + order tracking
+   ============================================================ */
+.account-page-section {
+  background-color: #CCCCCC;
+  padding: 140px 40px 80px;
+  min-height: 60vh;
+}
+.account-page-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+.account-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+}
+.account-card h2 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(19px, 2.2vw, 23px);
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+}
+.account-card p.account-sub {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13.5px;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.account-card .form-field { margin-bottom: 18px; }
+.account-card .form-field label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 6px;
+}
+.account-card .form-field input {
+  width: 100%;
+  padding: 11px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.account-card .form-field input:focus { border-color: #20699C; }
+.account-card .btn-primary { width: 100%; text-align: center; margin-top: 6px; }
+.account-result {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13.5px;
+  display: none;
+}
+.account-result.show { display: block; }
+.account-result.success { background: #e8f5e9; border: 1px solid #c8e6c9; color: #2e7d32; }
+.account-result.error { background: #fdecea; border: 1px solid #f5c6c0; color: #b23b3b; }
+.account-result .order-row {
+  display: flex; justify-content: space-between;
+  padding: 4px 0; font-size: 13px;
+}
+
+@media (max-width: 1024px) {
+  .account-page-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .cart-page-section { padding: 100px 20px 50px; }
+  .cart-page-inner { padding: 24px; border-radius: 10px; }
+  .cart-row { grid-template-columns: 70px 1fr; grid-template-areas: "img title" "img price" "remove remove"; }
+  .cart-row img { grid-area: img; width: 70px; height: 56px; }
+  .cart-row-title { grid-area: title; }
+  .cart-row-price { grid-area: price; }
+  .cart-row-remove { grid-area: remove; justify-self: end; }
+  .account-page-section { padding: 100px 20px 50px; }
+  .account-card { padding: 24px; border-radius: 10px; }
+}
