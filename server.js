@@ -10,6 +10,9 @@ const db = require('./data/db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Trust Render's reverse proxy so secure cookies work over HTTPS
+app.set('trust proxy', 1);
+
 // ─── SECURITY ──────────────────────────────────────────────────────────────
 app.use(helmet({
   contentSecurityPolicy: {
@@ -48,6 +51,7 @@ app.use(session({
   cookie: {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'lax' : false,
     maxAge: 24 * 60 * 60 * 1000,
   }
 }));
